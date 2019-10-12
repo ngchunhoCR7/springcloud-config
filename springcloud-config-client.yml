@@ -1,25 +1,27 @@
+# 请保存为utf-8的格式
 spring:
   profiles:
     active:
-    - dev
-eureka:
-  instance:
-    hostname: peer1
-  client:
-    service-url:
-      # eurekaServer设置了登录验证
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      - dev
 ---
-spring:
-  profiles: dev       # 开发环境
-  application:
-    name: springcloud-config-dev
 server:
   port: 8201
----
 spring:
-  profiles: test      # 测试环境
-  application:
-    name: springcloud-config-test
+  profiles: dev       # 开发环境
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+---
 server:
   port: 8202
+spring:
+  profiles: test      # 测试环境
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
