@@ -10,12 +10,16 @@ eureka:
       # eurekaServer设置了登录验证
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/
 ---
+spring:
+  profiles: dev       # 开发环境
+  application:
+    name: springcloud-config-dev
 server:
   port: 8201
-spring:
-  profiles: dev
 ---
+spring:
+  profiles: test      # 测试环境
+  application:
+    name: springcloud-config-test
 server:
   port: 8202
-spring:
-  profiles: test
