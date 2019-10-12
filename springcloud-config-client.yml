@@ -1,6 +1,6 @@
 spring:
-  application:
-    name: cofig-client
+  profiles:
+  - dev
 eureka:
   instance:
     hostname: peer1
@@ -10,16 +10,11 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/
 ---
 server:
-  port: 8800
+  port: 8201
 spring:
-  profiles: dev1
+  profiles: dev
 ---
 server:
-  port: 8801
-spring:
-  profiles: dev2
----
-server:
-  port: 8802
+  port: 8202
 spring:
   profiles: test
