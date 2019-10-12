@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: cofig-client
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    service-url:
+      # eurekaServer设置了登录验证
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+---
+server:
+  port: 8800
+spring:
+  profiles: dev1
+---
+server:
+  port: 8801
+spring:
+  profiles: dev2
+---
+server:
+  port: 8802
+spring:
+  profiles: test
